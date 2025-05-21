@@ -3,16 +3,36 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
+      "use": "@vercel/static-build",
       "config": {
-        "installCommand": "npm install",
-        "buildCommand": "chmod +x ./node_modules/.bin/react-scripts && npm run build",
-        "outputDirectory": "build"
+        "distDir": "build"
       }
     }
   ],
-  "framework": "create-react-app",
-  "engines": {
-    "node": "18.x"
-  }
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "/logo192.png",
+      "dest": "/logo192.png"
+    },
+    {
+      "src": "/logo512.png",
+      "dest": "/logo512.png"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
