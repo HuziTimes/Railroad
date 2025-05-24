@@ -5,8 +5,8 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "installCommand": "npm install --force",
-        "buildCommand": "chmod +x ./node_modules/.bin/react-scripts && npm run build",
+        "installCommand": "npm install",
+        "buildCommand": "npm run build",
         "outputDirectory": "build"
       }
     }
